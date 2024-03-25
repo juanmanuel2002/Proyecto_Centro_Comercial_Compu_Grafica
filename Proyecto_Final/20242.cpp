@@ -488,6 +488,7 @@ int main() {
 
 	Model atm("resources/objects/ATM/atm1.obj");
 	Model camellon("resources/objects/Camellon/camellon.obj");
+	Model tienda3("resources/objects/Tienda 3/todo.obj");
 
 
 
@@ -677,6 +678,13 @@ int main() {
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(150.0f, 0.f, 0.0f));
 		staticShader.setMat4("model", modelOp);
 		camellon.Draw(staticShader);
+		
+		
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(200.0f, 100.f, 0.0f));
+		staticShader.setMat4("model", modelOp);
+		tienda3.Draw(staticShader);
+		
+		
 
 
 
