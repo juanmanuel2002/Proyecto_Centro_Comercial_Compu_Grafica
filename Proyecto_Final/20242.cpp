@@ -56,9 +56,9 @@ double	deltaTime = 0.0f,
 lastFrame = 0.0f;
 
 void getResolution(void);
-void myData(void);							// De la practica 4
-void LoadTextures(void);					// De la práctica 6
-unsigned int generateTextures(char*, bool, bool);	// De la práctica 6
+void myData(void);							
+void LoadTextures(void);					
+unsigned int generateTextures(char*, bool, bool);	
 
 //For Keyboard
 float	movX = 0.0f,
@@ -73,13 +73,8 @@ float rotBrazoIzq = 0.0f,
 	  rotPiernaIzq = 0.0f;
 
 //Texture
-unsigned int	t_smile,
-				t_toalla,
-				t_unam,
-				t_white,
-				t_ladrillos,
-				t_ciudad,
-				t_cubo;
+unsigned int	t_white,
+				t_asfalto;
 
 //Lighting
 glm::vec3 lightPosition(0.0f, 4.0f, -10.0f);
@@ -116,6 +111,7 @@ float	incX = 0.0f,
 #define MAX_FRAMES 9
 int i_max_steps = 60;
 int i_curr_steps = 0;
+
 typedef struct _frame
 {
 	//Variables para GUARDAR Key Frames
@@ -209,22 +205,12 @@ unsigned int generateTextures(const char* filename, bool alfa, bool isPrimitive)
 
 void LoadTextures()
 {
-	//Agregando nuestra imagen de prueba
-	// el segundo parametro es para decir si el archivo contiene el canal alpha (en nuestro caso transparencia)
-	// el tercer parametro es para idicar uso de primitivas
-	t_ciudad = generateTextures("Texturas/Ciudad.jpg", 0, true);
-	t_cubo = generateTextures("Texturas/Cubo.jpg", 0, true);
-	
 
-	t_smile = generateTextures("Texturas/awesomeface.png", 1, true);
-	t_toalla = generateTextures("Texturas/toalla.tga", 0, true);
-	t_unam = generateTextures("Texturas/escudo_unam.jpg", 0, true);
-	t_ladrillos = generateTextures("Texturas/bricks.jpg", 0, true);
+	t_asfalto = generateTextures("Texturas/asfalto.jpg", 0, true);
 	//This must be the last
 	// si ya no quiero texturas ocupo esta
 	t_white = generateTextures("Texturas/white.jpg", 0, false);
 }
-
 
 
 void animate(void) 
@@ -277,11 +263,10 @@ void getResolution() {
 
 void myData() {
 	float vertices[] = {
-		//caundo se colocan valores mayores a 1 la imagen se repite
 		// positions          // texture coords
 		 0.5f,  0.5f, 0.0f,   1.0f, 1.0f, // top right
-		 0.5f, -0.5f, 0.0f,   1.0f, 0.0f, // bottom right   si ponemos y en 1 se voltea
-		-0.5f, -0.5f, 0.0f,   0.0f, 0.0f, // bottom left	si ponemos y en 1 se voltea
+		 0.5f, -0.5f, 0.0f,   1.0f, 0.0f, // bottom right   
+		-0.5f, -0.5f, 0.0f,   0.0f, 0.0f, // bottom left	
 		-0.5f,  0.5f, 0.0f,   0.0f, 1.0f  // top left 
 	};
 	unsigned int indices[] = {
@@ -407,7 +392,7 @@ int main() {
 	monitors = glfwGetPrimaryMonitor();
 	getResolution();
 
-	GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Pratica 6 2024-2", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Proyecto Centro Comercial", NULL, NULL);
 	if (window == NULL) {
 		std::cout << "Failed to create GLFW window" << std::endl;
 		glfwTerminate();
@@ -469,29 +454,12 @@ int main() {
 	Model piso("resources/objects/piso/piso.obj");
 	Model carro("resources/objects/lambo/carroceria.obj");
 	Model llanta("resources/objects/lambo/Wheel.obj");
-	Model casaVieja("resources/objects/casa/OldHouse.obj");
-	//Model cubo("resources/objects/cubo/cube02.obj");
-	Model casaDoll("resources/objects/casa/DollHouse.obj");
-
-	//Cargando nuestro acuaman
-	Model cuerpoAcuaman("resources/objects/Acuaman/cuerpo.obj");
-	Model brazoIzqAcuaman("resources/objects/Acuaman/brazoIzq.obj");
-	Model cabezaAcuaman("resources/objects/Acuaman/cabeza.obj");
-	Model brazoDerAcuaman("resources/objects/Acuaman/brazoDer.obj");
-	Model piernaDerAcuaman("resources/objects/Acuaman/piernaDer.obj");
-	Model piernaIzqAcuaman("resources/objects/Acuaman/piernaIzq.obj");
-	Model botaDerAcuaman("resources/objects/Acuaman/botaDer.obj");
-	Model botaIzqAcuaman("resources/objects/Acuaman/botaIzq.obj");
-	Model pierna_BotaAcuaman("resources/objects/Acuaman/piernaYBotaDer.obj");
-	Model pierna_Bota_Izq_Acuaman("resources/objects/Acuaman/pierna_bota_izq.obj");
-
 
 	Model atm("resources/objects/ATM/atm1.obj");
 	Model camellon("resources/objects/Camellon/camellon.obj");
+	Model muro("resources/objects/Muro/muro.obj");
 	Model tienda3("resources/objects/Tienda 3/todo.obj");
 	Model tienda1("resources/objects/Tienda 1/cafe4.obj");
-
-
 
 	ModelAnim animacionPersonaje("resources/objects/Personaje1/Arm.dae");
 	animacionPersonaje.initShaders(animShader.ID);
@@ -639,33 +607,11 @@ int main() {
 		modelOp = glm::rotate(modelOp, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		myShader.setMat4("model", modelOp);
 		myShader.setVec3("aColor", 1.0f, 1.0f, 1.0f);
-		glBindTexture(GL_TEXTURE_2D, t_ladrillos);
+		glBindTexture(GL_TEXTURE_2D, t_asfalto);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 		glBindVertexArray(VAO[0]);
-		//Colocar código aquí
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 10.0f, 0.0f));
-		modelOp = glm::scale(modelOp, glm::vec3(5.0f, 5.0f, 1.0f));
-		myShader.setMat4("model", modelOp);
-		// si quiero el color de la textura el color debe ser blanco. Sino suma este colo con el de la textura
-		myShader.setVec3("aColor", 1.0f, 1.0f, 1.0f);
-		// Aqui es donde le indicamos que textura usar al cuadrado
-		glBindTexture(GL_TEXTURE_2D, t_ciudad);
-		//glDrawArrays(GL_TRIANGLES, 0, 36); //A lonely cube :(
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
-		/***   Segundo objeto  **/
-		// se encarga de dibujar un triste cubito
-		glBindVertexArray(VAO[1]);
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(3.0f, 0.0f, 0.0f));
-		myShader.setMat4("model", modelOp);
-		myShader.setVec3("aColor", 1.0f, 1.0f, 1.0f);
-		glBindTexture(GL_TEXTURE_2D, t_cubo);
-		glDrawArrays(GL_TRIANGLES, 0, 36); //A lonely cube :(
-
-		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-
-		glBindVertexArray(0);
 		// ------------------------------------------------------------------------------------------------------------------------
 		// Termina Escenario Primitivas
 		// -------------------------------------------------------------------------------------------------------------------------
@@ -676,15 +622,60 @@ int main() {
 		atm.Draw(staticShader);
 
 
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(150.0f, 0.f, 0.0f));
+		// MURO
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.f, 0.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
+
+
+
+
+		// Cabellon 1
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-200.0f, 0.f, 200.0f));
 		staticShader.setMat4("model", modelOp);
 		camellon.Draw(staticShader);
 		
-		
+		// Cabellon 2
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-160.0f, 0.f, 200.0f));
+		staticShader.setMat4("model", modelOp);
+		camellon.Draw(staticShader);
+
+		// Cabellon 3
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-120.0f, 0.f, 200.0f));
+		staticShader.setMat4("model", modelOp);
+		camellon.Draw(staticShader);
+
+		// Cabellon 4
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-80.0f, 0.f, 200.0f));
+		staticShader.setMat4("model", modelOp);
+		camellon.Draw(staticShader);
+
+		// Cabellon 5
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(80.0f, 0.f, 200.0f));
+		staticShader.setMat4("model", modelOp);
+		camellon.Draw(staticShader);
+
+		// Cabellon 6
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(120.0f, 0.f, 200.0f));
+		staticShader.setMat4("model", modelOp);
+		camellon.Draw(staticShader);
+
+		// Cabellon 7
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(160.0f, 0.f, 200.0f));
+		staticShader.setMat4("model", modelOp);
+		camellon.Draw(staticShader);
+
+		// Cabellon 8
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(200.0f, 0.f, 200.0f));
+		staticShader.setMat4("model", modelOp);
+		camellon.Draw(staticShader);
+
+		//Tienda 3
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(200.0f, 100.f, 0.0f));
 		staticShader.setMat4("model", modelOp);
 		tienda3.Draw(staticShader);
 		
+		//Tienda 1
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 100.0f, 0.0f));
 		staticShader.setMat4("model", modelOp);
 		tienda1.Draw(staticShader);
@@ -702,21 +693,14 @@ int main() {
 		staticShader.setMat4("projection", projectionOp);
 		staticShader.setMat4("view", viewOp);
 
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(250.0f, 0.0f, -10.0f));
-		modelOp = glm::rotate(modelOp, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		casaDoll.Draw(staticShader);
+		
 
 		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -1.75f, 0.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(0.2f));
 		staticShader.setMat4("model", modelOp);
 		//piso.Draw(staticShader);
 
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -70.0f));
-		modelOp = glm::scale(modelOp, glm::vec3(5.0f));
-		staticShader.setMat4("model", modelOp);
-		staticShader.setVec3("dirLight.specular", glm::vec3(0.0f, 0.0f, 0.0f));
-		casaVieja.Draw(staticShader);
+		
 
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Carro
@@ -750,141 +734,9 @@ int main() {
 		modelOp = glm::scale(modelOp, glm::vec3(0.1f, 0.1f, 0.1f));
 		staticShader.setMat4("model", modelOp);
 		llanta.Draw(staticShader);	//Izq trase
-		// -------------------------------------------------------------------------------------------------------------------------
-		// Personaje
-		// -------------------------------------------------------------------------------------------------------------------------
-		// Creando matriz temporal
-		// Va a servir para hacer un modelado jerarquico 
-		glm::mat4 tempCuerpoAcuaman = glm::mat4(1.0f);
-		glm::mat4 tempPiernaDer = glm::mat4(1.0f);
-		glm::mat4 tempPiernaIzq = glm::mat4(1.0f);
-
-		//Poniendo a acuaman cuerpo
-		tempCuerpoAcuaman = modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		cuerpoAcuaman.Draw(staticShader);
-		
-		//Poniendo el brazo izquierdo(ponemos las coordenadas que nos daba en un inicio 3dMax
-		modelOp = glm::translate(tempCuerpoAcuaman, glm::vec3(0.75f, 1.5f, 0.0f));
-		modelOp = glm::rotate(modelOp, glm::radians(rotBrazoIzq), glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		brazoIzqAcuaman.Draw(staticShader);
-
-		// Para la cabeza
-		modelOp = glm::translate(tempCuerpoAcuaman, glm::vec3(0.0f, 1.5f, 0.0f));
-		modelOp = glm::rotate(modelOp, glm::radians(rotCabeza), glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		cabezaAcuaman.Draw(staticShader);
-
-		// Brazo Derecho
-		modelOp = glm::translate(tempCuerpoAcuaman, glm::vec3(-0.75f, 1.5f, 0.0f));
-		modelOp = glm::rotate(modelOp, glm::radians(-rotBrazoIzq), glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		brazoDerAcuaman.Draw(staticShader);
-
-		// Para ponerlos individualmente
-		
-		// Pierna Der
-		modelOp = glm::translate(tempCuerpoAcuaman, glm::vec3(-0.5, 0, -0.1));
-		tempPiernaDer = modelOp = glm::rotate(modelOp, glm::radians(rotPiernaDer), glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		piernaDerAcuaman.Draw(staticShader);
-
-		// Pierna Izq
-		modelOp = glm::translate(tempCuerpoAcuaman, glm::vec3(0.5, 0, -0.1));
-		tempPiernaIzq = modelOp = glm::rotate(modelOp, glm::radians(-rotPiernaDer), glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		piernaIzqAcuaman.Draw(staticShader);
-
-		// Bota Der
-		modelOp = glm::translate(tempPiernaDer, glm::vec3(0.0, -0.9, 0.0));
-		//modelOp = glm::rotate(modelOp, glm::radians(rotPiernaDer), glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		botaDerAcuaman.Draw(staticShader);
-
-		// Bota Izq
-		modelOp = glm::translate(tempPiernaIzq, glm::vec3(0.0, -0.9, 0.0));
-		//modelOp = glm::rotate(modelOp, glm::radians(rotPiernaDer), glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		botaIzqAcuaman.Draw(staticShader);
-
-		// Poniendolos juntos para que no se pierda en el movimiento por teclado
-		// Pierna y bota derecha
-		//modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-0.5, 0, -0.1));
-		//modelOp = glm::rotate(modelOp, glm::radians(rotPiernaDer), glm::vec3(1.0f, 0.0f, 0.0f));
-		//staticShader.setMat4("model", modelOp);
-		//pierna_BotaAcuaman.Draw(staticShader);
-
-		// Pierna y bota izquierda
-		//modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.5, 0, -0.1));
-		//modelOp = glm::rotate(modelOp, glm::radians(rotPiernaIzq), glm::vec3(1.0f, 0.0f, 0.0f));
-		//staticShader.setMat4("model", modelOp);
-		//pierna_Bota_Izq_Acuaman.Draw(staticShader);
-
-
+		//------------------------------------------------------------------------------------------------------------------------
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		// -------------------------------------------------------------------------------------------------------------------------
-		// Just in case
-		// -------------------------------------------------------------------------------------------------------------------------
-		/*modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(posX, posY, posZ));
-		tmp = modelOp = glm::rotate(modelOp, glm::radians(giroMonito), glm::vec3(0.0f, 1.0f, 0.0));
-		staticShader.setMat4("model", modelOp);
-		torso.Draw(staticShader);
-
-		//Pierna Der
-		modelOp = glm::translate(tmp, glm::vec3(-0.5f, 0.0f, -0.1f));
-		modelOp = glm::rotate(modelOp, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
-		modelOp = glm::rotate(modelOp, glm::radians(-rotRodIzq), glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		piernaDer.Draw(staticShader);
-
-		//Pie Der
-		modelOp = glm::translate(modelOp, glm::vec3(0, -0.9f, -0.2f));
-		staticShader.setMat4("model", modelOp);
-		botaDer.Draw(staticShader);
-
-		//Pierna Izq
-		modelOp = glm::translate(tmp, glm::vec3(0.5f, 0.0f, -0.1f));
-		modelOp = glm::rotate(modelOp, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		piernaIzq.Draw(staticShader);
-
-		//Pie Iz
-		modelOp = glm::translate(modelOp, glm::vec3(0, -0.9f, -0.2f));
-		staticShader.setMat4("model", modelOp);
-		botaDer.Draw(staticShader);	//Izq trase
-
-		//Brazo derecho
-		modelOp = glm::translate(tmp, glm::vec3(0.0f, -1.0f, 0.0f));
-		modelOp = glm::translate(modelOp, glm::vec3(-0.75f, 2.5f, 0));
-		modelOp = glm::rotate(modelOp, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		brazoDer.Draw(staticShader);
-
-		//Brazo izquierdo
-		modelOp = glm::translate(tmp, glm::vec3(0.0f, -1.0f, 0.0f));
-		modelOp = glm::translate(modelOp, glm::vec3(0.75f, 2.5f, 0));
-		modelOp = glm::rotate(modelOp, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", modelOp);
-		brazoIzq.Draw(staticShader);
-
-		//Cabeza
-		modelOp = glm::translate(tmp, glm::vec3(0.0f, -1.0f, 0.0f));
-		modelOp = glm::rotate(modelOp, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
-		modelOp = glm::translate(modelOp, glm::vec3(0.0f, 2.5f, 0));
-		staticShader.setMat4("model", modelOp);
-		cabeza.Draw(staticShader);*/
-
 		//-------------------------------------------------------------------------------------
 		// draw skybox as last
 		// -------------------
@@ -942,46 +794,6 @@ void my_input(GLFWwindow* window, int key, int scancode, int action, int mode)
 		rotRodIzq--;
 	if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS)
 		rotRodIzq++;
-	//if (glfwGetKey(window, GLFW_KEY_V) == GLFW_PRESS)
-		//giroMonito--;
-	//if (glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS)
-		//giroMonito++;
-	//Originales
-	//if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
-		//lightPosition.x++;
-	//if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
-		//lightPosition.x--;
-
-	//Para el movimiento del brazo izq
-	if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
-		rotBrazoIzq += 3.0f;
-	if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
-		rotBrazoIzq -= 3.0f;
-
-	//Para el movimiento del brazo der
-	if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
-		rotBrazoDer += 3.0f;
-	if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
-		rotBrazoDer -= 3.0f;
-
-	//Para el movimiento de la cabeza diceindo si
-	if (glfwGetKey(window, GLFW_KEY_V) == GLFW_PRESS)
-		rotCabeza += 3.0f;
-	if (glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS)
-		rotCabeza -= 3.0f;
-
-	//Para el movimiento de la pierna derecha
-	if (glfwGetKey(window, GLFW_KEY_6) == GLFW_PRESS)
-		rotPiernaDer += 3.0f;
-	if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS)
-		rotPiernaDer -= 3.0f;
-
-	//Para el movimiento de la pierna izquierda
-	if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS)
-		rotPiernaIzq += 3.0f;
-	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
-		rotPiernaIzq -= 3.0f;
-
 
 	//Car animation
 	if (key == GLFW_KEY_SPACE && action == GLFW_PRESS)
