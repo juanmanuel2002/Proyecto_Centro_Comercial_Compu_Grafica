@@ -617,17 +617,138 @@ int main() {
 		// -------------------------------------------------------------------------------------------------------------------------
 
 		// ATM
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 0.f, 0.0f));
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.f, 0.0f));
+		modelOp = glm::rotate(modelOp, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		staticShader.setMat4("model", modelOp);
 		atm.Draw(staticShader);
 
-
-		// MURO
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.f, 0.0f));
+		// Muros Izquierdos
+		// MURO 1
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-250.0f, 0.f, 0.0f));
+		modelOp = glm::rotate(modelOp, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(5.0f, 2.0f, 2.0f));
 		staticShader.setMat4("model", modelOp);
 		muro.Draw(staticShader);
 
+		// MURO 2
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-250.0f, 0.f, 115.0f));
+		modelOp = glm::rotate(modelOp, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(5.0f, 2.0f, 2.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
 
+		// MURO 3
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-250.0f, 0.f, 230.0f));
+		modelOp = glm::rotate(modelOp, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(5.0f, 2.0f, 2.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
+
+		// MURO 4
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-250.0f, 0.f, -115.0f));
+		modelOp = glm::rotate(modelOp, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(5.0f, 2.0f, 2.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
+
+		// MURO 5
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-250.0f, 0.f, -230.0f));
+		modelOp = glm::rotate(modelOp, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(5.0f, 2.0f, 2.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
+
+		// Muros delanteros 
+		// MURO 6
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-200.0f, 0.f, 302.5f));
+		modelOp = glm::scale(modelOp, glm::vec3(3.5f, 2.0f, 2.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
+
+		// MURO 7
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-100.0f, 0.f, 302.5f));
+		modelOp = glm::scale(modelOp, glm::vec3(3.5f, 2.0f, 2.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
+
+		// MURO 8
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 0.f, 302.5f));
+		modelOp = glm::scale(modelOp, glm::vec3(3.5f, 2.0f, 2.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
+
+		// MURO 9
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(200.0f, 0.f, 302.5f));
+		modelOp = glm::scale(modelOp, glm::vec3(3.5f, 2.0f, 2.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
+
+		//Muros Traceros
+		// MURO 10
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-200.0f, 0.f, -302.5f));
+		modelOp = glm::scale(modelOp, glm::vec3(3.5f, 2.0f, 2.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
+
+		// MURO 11
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-100.0f, 0.f, -302.5f));
+		modelOp = glm::scale(modelOp, glm::vec3(3.5f, 2.0f, 2.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
+
+		// MURO 12
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.f, -302.5f));
+		modelOp = glm::scale(modelOp, glm::vec3(3.5f, 2.0f, 2.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
+
+		// MURO 13
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 0.f, -302.5f));
+		modelOp = glm::scale(modelOp, glm::vec3(3.5f, 2.0f, 2.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
+
+		// MURO 14
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(200.0f, 0.f, -302.5f));
+		modelOp = glm::scale(modelOp, glm::vec3(3.5f, 2.0f, 2.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
+
+		// Muros Derechos
+		// MURO 15
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(250.0f, 0.f, 0.0f));
+		modelOp = glm::rotate(modelOp, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(5.0f, 2.0f, 2.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
+
+		// MURO 16
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(250.0f, 0.f, 115.0f));
+		modelOp = glm::rotate(modelOp, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(5.0f, 2.0f, 2.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
+
+		// MURO 17
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(250.0f, 0.f, 230.0f));
+		modelOp = glm::rotate(modelOp, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(5.0f, 2.0f, 2.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
+
+		// MURO 18
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(250.0f, 0.f, -115.0f));
+		modelOp = glm::rotate(modelOp, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(5.0f, 2.0f, 2.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
+
+		// MURO 19
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(250.0f, 0.f, -230.0f));
+		modelOp = glm::rotate(modelOp, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(5.0f, 2.0f, 2.0f));
+		staticShader.setMat4("model", modelOp);
+		muro.Draw(staticShader);
 
 
 		// Cabellon 1
@@ -671,12 +792,14 @@ int main() {
 		camellon.Draw(staticShader);
 
 		//Tienda 3
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(200.0f, 100.f, 0.0f));
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(150.0f, 0.0f, 0.0f));
 		staticShader.setMat4("model", modelOp);
 		tienda3.Draw(staticShader);
 		
 		//Tienda 1
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 100.0f, 0.0f));
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-170.0f, 0.0f, -200.0f));
+		modelOp = glm::rotate(modelOp, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setMat4("model", modelOp);
 		tienda1.Draw(staticShader);
 
