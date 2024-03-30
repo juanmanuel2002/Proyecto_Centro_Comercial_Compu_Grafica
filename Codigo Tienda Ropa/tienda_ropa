@@ -1,0 +1,38 @@
+Model tiendaRopaP1("resources/objects/TiendaRopaP1/tienda_ropa_p1.obj");
+Model tiendaRopaP2("resources/objects/TiendaRopaP1/tienda_ropa_p2.obj");
+Model tiendaRopaP3("resources/objects/TiendaRopaP1/tienda_ropa_p3.obj");
+Model tiendaRopaP4("resources/objects/TiendaRopaP1/tienda_ropa_p4.obj");
+Model tiendaRopaP5("resources/objects/TiendaRopaP1/tienda_ropa_p5.obj");
+Model tiendaRopaP6("resources/objects/TiendaRopaP1/tienda_ropa_p6.obj");
+
+
+modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(70.0f, 0.0f, 50.0f));
+staticShader.setMat4("model", modelOp);
+modelOp = glm::scale(modelOp, glm::vec3(2.0f));
+tiendaRopaP1.Draw(staticShader);
+
+modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(70.0f, 0.0f, 50.0f));
+staticShader.setMat4("model", modelOp);
+modelOp = glm::scale(modelOp, glm::vec3(2.0f));
+tiendaRopaP2.Draw(staticShader);
+
+modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(70.0f, 0.0f, 50.0f));
+staticShader.setMat4("model", modelOp);
+modelOp = glm::scale(modelOp, glm::vec3(2.0f));
+tiendaRopaP3.Draw(staticShader);
+
+modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(70.0f, 0.0f, 50.0f));
+staticShader.setMat4("model", modelOp);
+modelOp = glm::scale(modelOp, glm::vec3(2.0f));
+tiendaRopaP4.Draw(staticShader);
+
+
+modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(70.0f, 0.0f, 50.0f));
+staticShader.setMat4("model", modelOp);
+modelOp = glm::scale(modelOp, glm::vec3(2.0f));
+tiendaRopaP5.Draw(staticShader);
+
+modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(70.0f, 0.0f, 50.0f));
+staticShader.setMat4("model", modelOp);
+modelOp = glm::scale(modelOp, glm::vec3(2.0f));
+tiendaRopaP6.Draw(staticShader);
