@@ -461,6 +461,13 @@ int main() {
 	Model tienda3("resources/objects/Tienda 3/todo.obj");
 	Model tienda1("resources/objects/Tienda 1/cafe4.obj");
 
+	Model tiendaRopaP1("resources/objects/TiendaRopaP1/tienda_ropa_p1.obj");
+	Model tiendaRopaP2("resources/objects/TiendaRopaP1/tienda_ropa_p2.obj");
+	Model tiendaRopaP3("resources/objects/TiendaRopaP1/tienda_ropa_p3.obj");
+	Model tiendaRopaP4("resources/objects/TiendaRopaP1/tienda_ropa_p4.obj");
+	Model tiendaRopaP5("resources/objects/TiendaRopaP1/tienda_ropa_p5.obj");
+	Model tiendaRopaP6("resources/objects/TiendaRopaP1/tienda_ropa_p6.obj");
+
 	ModelAnim animacionPersonaje("resources/objects/Personaje1/Arm.dae");
 	animacionPersonaje.initShaders(animShader.ID);
 
@@ -797,12 +804,43 @@ int main() {
 		tienda3.Draw(staticShader);
 		
 		//Tienda 1
-		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-170.0f, 0.0f, -200.0f));
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(-180.0f, 0.0f, -200.0f));
 		modelOp = glm::rotate(modelOp, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		modelOp = glm::scale(modelOp, glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setMat4("model", modelOp);
 		tienda1.Draw(staticShader);
 
+		//Tienda 2
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -180.0f));
+		staticShader.setMat4("model", modelOp);
+		modelOp = glm::scale(modelOp, glm::vec3(2.0f));
+		tiendaRopaP1.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -180.0f));
+		staticShader.setMat4("model", modelOp);
+		modelOp = glm::scale(modelOp, glm::vec3(2.0f));
+		tiendaRopaP2.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -180.0f));
+		staticShader.setMat4("model", modelOp);
+		modelOp = glm::scale(modelOp, glm::vec3(2.0f));
+		tiendaRopaP3.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -180.0f));
+		staticShader.setMat4("model", modelOp);
+		modelOp = glm::scale(modelOp, glm::vec3(2.0f));
+		tiendaRopaP4.Draw(staticShader);
+
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -180.0f));
+		staticShader.setMat4("model", modelOp);
+		modelOp = glm::scale(modelOp, glm::vec3(2.0f));
+		tiendaRopaP5.Draw(staticShader);
+
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -180.0f));
+		staticShader.setMat4("model", modelOp);
+		modelOp = glm::scale(modelOp, glm::vec3(2.0f));
+		tiendaRopaP6.Draw(staticShader);
 
 
 
