@@ -468,6 +468,8 @@ int main() {
 	Model tiendaRopaP5("resources/objects/TiendaRopaP1/tienda_ropa_p5.obj");
 	Model tiendaRopaP6("resources/objects/TiendaRopaP1/tienda_ropa_p6.obj");
 
+	Model Escalera("resources/objects/EscaleraMecanica/escalera electrica n.obj");
+
 	ModelAnim animacionPersonaje("resources/objects/Personaje1/Arm.dae");
 	animacionPersonaje.initShaders(animShader.ID);
 
@@ -843,7 +845,10 @@ int main() {
 		tiendaRopaP6.Draw(staticShader);
 
 
-
+		modelOp = glm::translate(glm::mat4(1.0f), glm::vec3(200.0f, 0.0f, -250.0f));
+		modelOp = glm::scale(modelOp, glm::vec3(1.5f));
+		staticShader.setMat4("model", modelOp);
+		Escalera.Draw(staticShader);
 
 
 

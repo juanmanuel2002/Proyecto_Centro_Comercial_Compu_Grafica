@@ -1,15 +1,18 @@
 ﻿  20242.cpp
-D:\ESCUELA\8_Semetre\Proyecto_Grafica\Proyecto_Final\include\shader_m.h(44,40): warning C4101: 'e': variable local sin referencia
-D:\ESCUELA\8_Semetre\Proyecto_Grafica\Proyecto_Final\include\mesh.h(88,1): warning C4267: 'argumento': conversión de 'size_t' a 'GLsizei'; posible pérdida de datos
-D:\ESCUELA\8_Semetre\Proyecto_Grafica\Proyecto_Final\include\meshAnim.h(116,1): warning C4267: 'argumento': conversión de 'size_t' a 'GLsizei'; posible pérdida de datos
-D:\ESCUELA\8_Semetre\Proyecto_Grafica\Proyecto_Final\include\modelAnim.h(104,44): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-D:\ESCUELA\8_Semetre\Proyecto_Grafica\Proyecto_Final\include\modelAnim.h(520,24): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-D:\ESCUELA\8_Semetre\Proyecto_Grafica\Proyecto_Final\20242.cpp(523,27): warning C4244: '=': conversión de 'Uint64' a 'double'; posible pérdida de datos
-D:\ESCUELA\8_Semetre\Proyecto_Grafica\Proyecto_Final\20242.cpp(1023,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-D:\ESCUELA\8_Semetre\Proyecto_Grafica\Proyecto_Final\20242.cpp(1024,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-D:\ESCUELA\8_Semetre\Proyecto_Grafica\Proyecto_Final\20242.cpp(1031,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-D:\ESCUELA\8_Semetre\Proyecto_Grafica\Proyecto_Final\20242.cpp(1032,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-D:\ESCUELA\8_Semetre\Proyecto_Grafica\Proyecto_Final\20242.cpp(1034,39): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-D:\ESCUELA\8_Semetre\Proyecto_Grafica\Proyecto_Final\20242.cpp(1034,30): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-D:\ESCUELA\8_Semetre\Proyecto_Grafica\Proyecto_Final\20242.cpp(1039,28): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-  Proyecto_Final.vcxproj -> D:\ESCUELA\8_Semetre\Proyecto_Grafica\Proyecto_Final\x64\Debug\Proyecto_Final.exe
+D:\ESCUELA\8_Semetre\Proyecto_Centro_Comercial_Compu_Grafica\Proyecto_Final\include\shader_m.h(44,40): warning C4101: 'e': variable local sin referencia
+D:\ESCUELA\8_Semetre\Proyecto_Centro_Comercial_Compu_Grafica\Proyecto_Final\include\mesh.h(88,1): warning C4267: 'argumento': conversión de 'size_t' a 'GLsizei'; posible pérdida de datos
+D:\ESCUELA\8_Semetre\Proyecto_Centro_Comercial_Compu_Grafica\Proyecto_Final\include\meshAnim.h(116,1): warning C4267: 'argumento': conversión de 'size_t' a 'GLsizei'; posible pérdida de datos
+D:\ESCUELA\8_Semetre\Proyecto_Centro_Comercial_Compu_Grafica\Proyecto_Final\include\modelAnim.h(104,44): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+D:\ESCUELA\8_Semetre\Proyecto_Centro_Comercial_Compu_Grafica\Proyecto_Final\include\modelAnim.h(520,24): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+D:\ESCUELA\8_Semetre\Proyecto_Centro_Comercial_Compu_Grafica\Proyecto_Final\20242.cpp(502,27): warning C4244: '=': conversión de 'Uint64' a 'double'; posible pérdida de datos
+D:\ESCUELA\8_Semetre\Proyecto_Centro_Comercial_Compu_Grafica\Proyecto_Final\20242.cpp(1012,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+D:\ESCUELA\8_Semetre\Proyecto_Centro_Comercial_Compu_Grafica\Proyecto_Final\20242.cpp(1013,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+D:\ESCUELA\8_Semetre\Proyecto_Centro_Comercial_Compu_Grafica\Proyecto_Final\20242.cpp(1020,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+D:\ESCUELA\8_Semetre\Proyecto_Centro_Comercial_Compu_Grafica\Proyecto_Final\20242.cpp(1021,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+D:\ESCUELA\8_Semetre\Proyecto_Centro_Comercial_Compu_Grafica\Proyecto_Final\20242.cpp(1023,39): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+D:\ESCUELA\8_Semetre\Proyecto_Centro_Comercial_Compu_Grafica\Proyecto_Final\20242.cpp(1023,30): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+D:\ESCUELA\8_Semetre\Proyecto_Centro_Comercial_Compu_Grafica\Proyecto_Final\20242.cpp(1028,28): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+  glad.c
+  LINK : no se encontró D:\ESCUELA\8_Semetre\Proyecto_Centro_Comercial_Compu_Grafica\Proyecto_Final\x64\Debug\Proyecto_Final.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+LINK : warning LNK4098: la biblioteca predeterminada'MSVCRT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
+  Proyecto_Final.vcxproj -> D:\ESCUELA\8_Semetre\Proyecto_Centro_Comercial_Compu_Grafica\Proyecto_Final\x64\Debug\Proyecto_Final.exe
